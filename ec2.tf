@@ -1,8 +1,13 @@
-# Create EC2 instance with Apache2
+resource "aws_key_pair" "my_key" {
+    key_name   = "my_key"
+    public_key = file("~/.ssh/aws-keypair.pub")
+}
+
 resource "aws_instance" "web_server" {
     ami           = var.ami
     instance_type = var.t2-instance_type
     subnet_id = aws_subnet.public["subnet1"].id
+    key_name = aws_key_pair.my_key.key_name
     
     user_data = <<-EOF
                             #!/bin/bash
