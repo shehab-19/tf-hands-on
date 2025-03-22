@@ -28,7 +28,7 @@ variable "private-rtb-name" {
 }
 
 variable "igw-name" {
-  default = "custom-igw"
+  type = string
 }
 
 variable "vpc-name" {
