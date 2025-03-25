@@ -13,3 +13,7 @@ module "asg" {
   public_subnets = module.vpc.public_subnets_id
 }
 
+output "re-exported-dns" {
+  value = module.asg.alb_dns_name
+  
+}
