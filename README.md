@@ -1,5 +1,5 @@
 # tf-hands-on
 ## public access
-![public access](./access.png)
+![public access](./first-image.png)
 ## ssh
-![ssh](./ssh.png)
+![ssh](./second-image.png)

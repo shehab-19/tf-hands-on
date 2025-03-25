@@ -2,7 +2,7 @@ resource "aws_launch_template" "web_lt" {
   name = "web-lt"
   image_id      = var.ami 
   instance_type = var.t2_instance_type
-  key_name      = module.vpc.keypair
+  key_name      = var.key_pair
 
 
   user_data = base64encode(<<-EOF
@@ -14,8 +14,8 @@ resource "aws_launch_template" "web_lt" {
   )
 
   network_interfaces {
-    associate_public_ip_address = false 
-    # security_groups = [aws_security_group.web_sg.id]
+    associate_public_ip_address = true  
+    security_groups = [var.lt_security_group]
   }
 
   tag_specifications {

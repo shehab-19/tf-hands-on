@@ -1,6 +1,6 @@
 variable "az" {
-   
-    default     = "us-east-1a"
+    type = list(string)
+    default     = ["us-east-1a", "us-east-1b"]
 }
 
 variable "public-subnet-cidr_block" {
@@ -8,6 +8,7 @@ variable "public-subnet-cidr_block" {
     default = {
 
         subnet1  = "10.0.0.0/18"
+        subnet2  = "10.0.64.0/18"
 }    
 }
 
